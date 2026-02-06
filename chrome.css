@@ -1,0 +1,21 @@
+/*
+ * Zen Browser Mod: Hide Extension Context Menus
+ * Reference Structure: https://github.com/Noyoth/zen-hide-audio-icons
+ */
+
+/* 1. 隐藏带有 extensionid 属性的标准扩展菜单项 */
+#contentAreaContextMenu > [extensionid] {
+    display: none !important;
+}
+
+/* 2. 隐藏部分使用特殊 ID 前缀的扩展项（例如 Open in IINA 等） */
+#contentAreaContextMenu menuitem[id^="_"],
+#contentAreaContextMenu menu[id^="_"] {
+    display: none !important;
+}
+
+/* 3. 针对部分未通过 extensionid 标识但属于第三方插件的二级菜单 */
+#contentAreaContextMenu > .menu-iconic[id*="extension"],
+#contentAreaContextMenu > .menuitem-iconic[id*="extension"] {
+    display: none !important;
+}
